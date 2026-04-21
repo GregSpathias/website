@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gregory Spathias — Staff Analytics Engineer</title>
+<meta name="description" content="Staff Analytics Engineer specializing in AI-powered data products, LLM agent systems, and GTM intelligence.">
+<meta name="keywords" content="Gregory Spathias, Staff Analytics Engineer, Data Engineer, LangChain, AI Agent, LinkedIn, San Francisco">
+<meta property="og:title" content="Gregory Spathias — Staff Analytics Engineer">
+<meta property="og:description" content="Staff Analytics Engineer specializing in AI-powered data products, LLM agent systems, and GTM intelligence at scale.">
+<meta property="og:url" content="https://www.gregoryspathias.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gregory Spathias — Staff Analytics Engineer">
+<meta name="twitter:description" content="Staff Analytics Engineer specializing in AI-powered data products, LLM agent systems, and GTM intelligence at scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0c;
+    --bg2: #161614;
+    --bg3: #1e1e1b;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede6;
+    --text-muted: #8a8880;
+    --text-faint: #4a4a47;
+    --accent: #c8b89a;
+    --accent2: #7eb8a4;
+    --accent3: #d4956a;
+    --mono: 'DM Mono', monospace;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { background: var(--accent); color: var(--bg); }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2.5rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(14,14,12,0.92);
+    backdrop-filter: blur(12px);
+    border-color: var(--border);
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 2.5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 60% at 20% 80%, black 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent2);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.55s forwards;
+  }
+
+  .hero-desc {
+    max-width: 420px;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+  .hero-desc strong { color: var(--text); font-weight: 400; }
+
+  .hero-links {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+  .hero-link {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.6rem 1.2rem;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .hero-link:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+    background: var(--bg3);
+  }
+  .hero-link.primary {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+  .hero-link.primary:hover {
+    background: var(--text);
+    border-color: var(--text);
+  }
+
+  /* SECTION SHARED */
+  section { padding: 6rem 2.5rem; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    max-width: 120px;
+  }
+
+  /* ABOUT / STACK */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+  }
+  .about-text {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .about-text strong { color: var(--text); font-weight: 400; }
+  .about-text p + p { margin-top: 1.25rem; }
+
+  .stack-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .stack-group {}
+  .stack-group-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .stack-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .stack-item {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+  .stack-item:hover { color: var(--text); }
+
+  /* WORK */
+  .work-list { display: flex; flex-direction: column; gap: 0; max-width: 900px; }
+
+  .work-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+  .work-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .work-meta {}
+  .work-company {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .work-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+
+  .work-body {}
+  .work-title {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .work-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .work-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+  .tag:hover { color: var(--text-muted); border-color: var(--border-hover); }
+
+  /* PROJECTS */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    max-width: 1000px;
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 2rem;
+    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: transparent;
+    transition: background 0.2s;
+  }
+  .project-card:hover { background: var(--bg2); }
+  .project-card:hover::before { background: var(--accent); }
+  .project-card:nth-child(2):hover::before { background: var(--accent2); }
+  .project-card:nth-child(3):hover::before { background: var(--accent3); }
+
+  .project-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .project-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+  }
+  .project-stack {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  .project-card:nth-child(2) .project-stack { color: var(--accent2); }
+  .project-card:nth-child(3) .project-stack { color: var(--accent3); }
+
+  /* WRITING */
+  .writing-list { max-width: 700px; display: flex; flex-direction: column; gap: 0; }
+  .writing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 2rem;
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--border);
+    transition: padding-left 0.2s;
+    cursor: default;
+  }
+  .writing-item:last-child { border-bottom: 1px solid var(--border); }
+  .writing-item:hover { padding-left: 0.75rem; }
+  .writing-title {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 400;
+  }
+  .writing-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .writing-coming {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    border: 1px solid var(--border);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* CONNECT */
+  .connect-inner {
+    max-width: 600px;
+  }
+  .connect-heading {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+  .connect-heading em { font-style: italic; color: var(--accent); }
+  .connect-desc {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+  .connect-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 2.5rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+  }
+  .footer-loc {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.25rem 3.5rem; }
+    .hero-bottom { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stack-cols { grid-template-columns: 1fr 1fr; }
+    .work-item { grid-template-columns: 1fr; gap: 0.75rem; }
+    .work-meta { display: flex; gap: 1rem; align-items: baseline; }
+    .connect-links { flex-direction: column; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-logo">gs<span>.</span>com</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-tag">Staff Analytics Engineer · San Francisco</div>
+  <h1 class="hero-name">Gregory<br><em>Spathias</em></h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">
+      I build <strong>AI-powered data products</strong> and large-scale analytics systems.<br>
+      Currently at <strong>LinkedIn</strong> — architecting intelligent sales infrastructure at the intersection of data engineering and LLM agents.
+    </p>
+    <div class="hero-links">
+      <a href="https://www.linkedin.com/in/gregory-spathias/" target="_blank" class="hero-link">LinkedIn</a>
+      <a href="https://github.com/GregSpathias" target="_blank" class="hero-link">GitHub</a>
+      <a href="#connect" class="hero-link primary">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT + STACK -->
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="about-grid reveal">
+    <div class="about-text">
+      <p>
+        I'm a Staff Analytics Engineer with <strong>7+ years</strong> building data infrastructure that drives revenue decisions. My work lives at the intersection of scalable pipelines, product analytics, and — increasingly — <strong>LLM-powered systems</strong> that put intelligence directly in the hands of sellers and operators.
+      </p>
+      <p>
+        At LinkedIn, I've designed and shipped data products across the full GTM stack: from Trino-based pipeline architecture and incremental loading patterns to a from-scratch AI agent platform for enterprise sales intelligence.
+      </p>
+      <p>
+        I care about building things that <strong>actually get used</strong> — which means obsessing over the last mile between a clean pipeline and a decision that changes behavior.
+      </p>
+    </div>
+    <div>
+      <div class="stack-cols">
+        <div class="stack-group">
+          <div class="stack-group-label">AI / LLM</div>
+          <div class="stack-items">
+            <span class="stack-item">LangChain</span>
+            <span class="stack-item">LangGraph</span>
+            <span class="stack-item">RAG architectures</span>
+            <span class="stack-item">Streamlit</span>
+            <span class="stack-item">OpenAI API</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-label">Data Engineering</div>
+          <div class="stack-items">
+            <span class="stack-item">Trino / Presto</span>
+            <span class="stack-item">dbt</span>
+            <span class="stack-item">Airflow</span>
+            <span class="stack-item">Spark</span>
+            <span class="stack-item">Snowflake</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-label">Languages</div>
+          <div class="stack-items">
+            <span class="stack-item">Python</span>
+            <span class="stack-item">SQL</span>
+            <span class="stack-item">Scala</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <div class="stack-group-label">Cloud &amp; Infra</div>
+          <div class="stack-items">
+            <span class="stack-item">AWS</span>
+            <span class="stack-item">GCP</span>
+            <span class="stack-item">Kafka</span>
+            <span class="stack-item">Kubernetes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WORK EXPERIENCE -->
+<section id="work">
+  <div class="section-label">Experience</div>
+  <div class="work-list">
+
+    <div class="work-item reveal">
+      <div class="work-meta">
+        <div class="work-company">LinkedIn</div>
+        <div class="work-period">2019 — present</div>
+      </div>
+      <div class="work-body">
+        <div class="work-title">Staff Analytics Engineer, Marketing Solutions</div>
+        <p class="work-desc">
+          Lead analytics engineering for LinkedIn's Marketing Solutions GTM organization, owning data infrastructure that informs revenue strategy across enterprise sales. Architected the NEON Scaled Customer Insights Agent — an LLM-powered platform that surfaces real-time account intelligence for enterprise sales reps. Designed and maintained Trino-based data pipelines at scale, including incremental loading patterns and event classification systems serving the full commercial sales org.
+        </p>
+        <div class="work-tags">
+          <span class="tag">Trino</span>
+          <span class="tag">dbt</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Streamlit</span>
+          <span class="tag">Python</span>
+          <span class="tag">Airflow</span>
+          <span class="tag">GTM Analytics</span>
+          <span class="tag">AI Agents</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <div class="projects-grid reveal">
+
+    <div class="project-card">
+      <div class="project-num">01</div>
+      <div class="project-title">NEON Scaled Customer Insights Agent</div>
+      <p class="project-desc">
+        An LLM-powered sales intelligence platform built for LinkedIn's enterprise sales org. Architected a five-step agent interaction flow (Query → Discovery → Insights → Analyze → Export) with account memory persistence, enabling sellers to surface real-time account intelligence without analyst bottlenecks.
+      </p>
+      <div class="project-stack">LangChain · Streamlit · Python · LLM · RAG</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">02</div>
+      <div class="project-title">GTM Event Attribution Pipeline</div>
+      <p class="project-desc">
+        End-to-end classification pipeline for event-related ads at LinkedIn Marketing Solutions. Designed an extensible schema and LEFT ANTI JOIN incremental loading pattern in Trino, powering Q3 Events Crediting with a goal of full pipeline automation and revenue attribution accuracy.
+      </p>
+      <div class="project-stack">Trino · SQL · Python · dbt · Airflow</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">03</div>
+      <div class="project-title">LinkedIn Advertising AI Agent</div>
+      <p class="project-desc">
+        A structured LLM system prompt and agent architecture enabling natural-language analysis of LinkedIn campaign performance data. Dynamically adapts to any campaign-related question, surfacing under-leveraged content topics and top-performing creatives by dwell time, CTR, and conversion metrics.
+      </p>
+      <div class="project-stack">LangChain · OpenAI · Python · Prompt Engineering</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WRITING -->
+<section id="writing">
+  <div class="section-label">Writing</div>
+  <div class="writing-list reveal">
+
+    <div class="writing-item">
+      <span class="writing-title">Building production LLM agents at enterprise scale — lessons from NEON</span>
+      <span class="writing-coming">coming soon</span>
+    </div>
+
+    <div class="writing-item">
+      <span class="writing-title">Why LEFT ANTI JOIN is the right incremental loading pattern for most pipelines</span>
+      <span class="writing-coming">coming soon</span>
+    </div>
+
+    <div class="writing-item">
+      <span class="writing-title">Designing success metrics for AI-powered internal tools</span>
+      <span class="writing-coming">coming soon</span>
+    </div>
+
+  </div>
+  <p style="margin-top: 1.5rem; font-family: var(--mono); font-size: 12px; color: var(--text-faint);">
+    Follow on <a href="https://www.linkedin.com/in/gregory-spathias/" target="_blank" style="color: var(--text-muted); text-decoration: underline; text-underline-offset: 3px;">LinkedIn</a> for updates when articles publish.
+  </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="connect-inner reveal">
+    <div class="section-label">Connect</div>
+    <h2 class="connect-heading">Let's build something <em>worth building.</em></h2>
+    <p class="connect-desc">
+      I'm always interested in conversations about data products, AI infrastructure, and GTM analytics at scale. Whether you're working on something ambitious or just want to compare notes — reach out.
+    </p>
+    <div class="connect-links">
+      <a href="mailto:gregoryspathias@gmail.com" class="hero-link primary">gregoryspathias@gmail.com</a>
+      <a href="https://www.linkedin.com/in/gregory-spathias/" target="_blank" class="hero-link">LinkedIn</a>
+      <a href="https://github.com/GregSpathias" target="_blank" class="hero-link">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 Gregory Spathias</span>
+  <span class="footer-loc">San Francisco, CA</span>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
