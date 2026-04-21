@@ -5,15 +5,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gregory Spathias — Staff Analytics Engineer</title>
-<meta name="description" content="Staff Analytics Engineer specializing in AI-powered data products, LLM agent systems, and GTM intelligence.">
+<meta name="description" content="Staff Analytics Engineer at LinkedIn — data foundations, Scaled analytics, AI-powered sales intelligence, and GTM tooling.">
 <meta name="keywords" content="Gregory Spathias, Staff Analytics Engineer, Data Engineer, LangChain, AI Agent, LinkedIn, San Francisco">
 <meta property="og:title" content="Gregory Spathias — Staff Analytics Engineer">
-<meta property="og:description" content="Staff Analytics Engineer specializing in AI-powered data products, LLM agent systems, and GTM intelligence at scale.">
+<meta property="og:description" content="Staff Analytics Engineer at LinkedIn — data foundations, LLM systems, and revenue analytics for Marketing Solutions GTM.">
 <meta property="og:url" content="https://www.gregoryspathias.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gregory Spathias — Staff Analytics Engineer">
-<meta name="twitter:description" content="Staff Analytics Engineer specializing in AI-powered data products, LLM agent systems, and GTM intelligence at scale.">
+<meta name="twitter:description" content="Staff Analytics Engineer at LinkedIn — data foundations, NEON-scale tooling, LLM systems, and GTM analytics.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -291,6 +291,29 @@
     line-height: 1.7;
     margin-bottom: 1rem;
   }
+  .work-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem 0;
+  }
+  .work-bullets li {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    padding-left: 1.1rem;
+    position: relative;
+    margin-bottom: 0.45rem;
+  }
+  .work-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
   .work-tags {
     display: flex;
     flex-wrap: wrap;
@@ -337,6 +360,7 @@
   .project-card:hover::before { background: var(--accent); }
   .project-card:nth-child(2):hover::before { background: var(--accent2); }
   .project-card:nth-child(3):hover::before { background: var(--accent3); }
+  .project-card:nth-child(4):hover::before { background: var(--accent); }
 
   .project-num {
     font-family: var(--mono);
@@ -366,6 +390,7 @@
   }
   .project-card:nth-child(2) .project-stack { color: var(--accent2); }
   .project-card:nth-child(3) .project-stack { color: var(--accent3); }
+  .project-card:nth-child(4) .project-stack { color: var(--accent); }
 
   /* WRITING */
   .writing-list { max-width: 700px; display: flex; flex-direction: column; gap: 0; }
@@ -506,8 +531,8 @@
   <h1 class="hero-name">Gregory<br><em>Spathias</em></h1>
   <div class="hero-bottom">
     <p class="hero-desc">
-      I build <strong>AI-powered data products</strong> and large-scale analytics systems.<br>
-      Currently at <strong>LinkedIn</strong> — architecting intelligent sales infrastructure at the intersection of data engineering and LLM agents.
+      I build <strong>high-leverage analytics infrastructure</strong> and AI-powered sales intelligence.<br>
+      At <strong>LinkedIn</strong>, I focus on <strong>data foundations</strong> and NEON-scale tooling — from core table strategy and pipeline performance to LLM agents that put insights in front of sellers.
     </p>
     <div class="hero-links">
       <a href="https://www.linkedin.com/in/gregory-spathias/" target="_blank" class="hero-link">LinkedIn</a>
@@ -525,7 +550,7 @@
   <div class="about-grid reveal">
     <div class="about-text">
       <p>
-        I'm a Staff Analytics Engineer with <strong>7+ years</strong> building data infrastructure that drives revenue decisions. My work lives at the intersection of scalable pipelines, product analytics, and — increasingly — <strong>LLM-powered systems</strong> that put intelligence directly in the hands of sellers and operators.
+        I'm a Staff Analytics Engineer with <strong>7+ years</strong> building data products and analytics systems that revenue teams actually use. After years owning <strong>NEON</strong> scaled insights and programs like ABM and performance measurement, I now sit on <strong>Tooling &amp; Data Foundations</strong> — improving how our analytical stack performs at scale and how sellers get answers without bottlenecks.
       </p>
       <p>
         At LinkedIn, I've designed and shipped data products across the full GTM stack: from Trino-based pipeline architecture and incremental loading patterns to a from-scratch AI agent platform for enterprise sales intelligence.
@@ -553,7 +578,6 @@
             <span class="stack-item">dbt</span>
             <span class="stack-item">Airflow</span>
             <span class="stack-item">Spark</span>
-            <span class="stack-item">Snowflake</span>
           </div>
         </div>
         <div class="stack-group">
@@ -561,16 +585,6 @@
           <div class="stack-items">
             <span class="stack-item">Python</span>
             <span class="stack-item">SQL</span>
-            <span class="stack-item">Scala</span>
-          </div>
-        </div>
-        <div class="stack-group">
-          <div class="stack-group-label">Cloud &amp; Infra</div>
-          <div class="stack-items">
-            <span class="stack-item">AWS</span>
-            <span class="stack-item">GCP</span>
-            <span class="stack-item">Kafka</span>
-            <span class="stack-item">Kubernetes</span>
           </div>
         </div>
       </div>
@@ -588,22 +602,105 @@
     <div class="work-item reveal">
       <div class="work-meta">
         <div class="work-company">LinkedIn</div>
-        <div class="work-period">2019 — present</div>
+        <div class="work-period">Mar 2025 — present</div>
       </div>
       <div class="work-body">
         <div class="work-title">Staff Analytics Engineer, Marketing Solutions</div>
-        <p class="work-desc">
-          Lead analytics engineering for LinkedIn's Marketing Solutions GTM organization, owning data infrastructure that informs revenue strategy across enterprise sales. Designed and maintained Trino-based data pipelines at scale, including incremental loading patterns and event classification systems serving the full commercial sales org.
-        </p>
+        <ul class="work-bullets">
+          <li>Own the analytics engineering roadmap for LMS GTM insights — scalable Spark, Airflow, and Azkaban pipelines and data models for Sales, Finance, Product, and Ops.</li>
+          <li>Raised platform reliability from 80% to 92% by redesigning foundational tables, optimizing pipelines, and tightening quality checks across 60+ enterprise analytics tools.</li>
+          <li>Built self-serve data layers, dashboards, and automated GTM narratives used by 2,000+ internal users.</li>
+          <li>Implemented a data-tiering framework with SLAs and on-call rotation for Tier-0 datasets; established canonical datasets and metric layers unifying logs, GTM, and first-party data.</li>
+        </ul>
         <div class="work-tags">
-          <span class="tag">Trino</span>
-          <span class="tag">dbt</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Streamlit</span>
-          <span class="tag">Python</span>
+          <span class="tag">Spark</span>
           <span class="tag">Airflow</span>
+          <span class="tag">Azkaban</span>
+          <span class="tag">dbt</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
           <span class="tag">GTM Analytics</span>
-          <span class="tag">AI Agents</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item reveal">
+      <div class="work-meta">
+        <div class="work-company">LinkedIn</div>
+        <div class="work-period">Aug 2021 — Feb 2025</div>
+      </div>
+      <div class="work-body">
+        <div class="work-title">Senior Insights Program Manager</div>
+        <ul class="work-bullets">
+          <li>Shipped GTM analytics tooling used 100,000+ times per year by 2,000+ business users, tied to $1.2B+ in ad revenue.</li>
+          <li>Improved ABM and QBR tools — roughly 20% higher report success rates and 50% more influenced revenue — and ran a feedback-driven intake process that converted about 30% of user input into product enhancements.</li>
+          <li>Promoted from Insights Program Manager after 2.5 years for outsized revenue impact.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">NEON</span>
+          <span class="tag">CIQ</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Product analytics</span>
+          <span class="tag">Stakeholder management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item reveal">
+      <div class="work-meta">
+        <div class="work-company">LinkedIn</div>
+        <div class="work-period">Nov 2019 — Jul 2021</div>
+      </div>
+      <div class="work-body">
+        <div class="work-title">Senior Insights Analyst</div>
+        <ul class="work-bullets">
+          <li>Delivered pre-sales insights for LinkedIn’s top enterprise accounts — work linked to $87M+ in revenue.</li>
+          <li>Led cross-functional launch of SMB GTM analytics reaching 5,200+ customers and $30M+ in revenue.</li>
+          <li>Co-produced a Forbes / Sprinklr report on top CMOs for public thought leadership.</li>
+          <li>Promoted from Insights Analyst after 1.5 years.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Analytics</span>
+          <span class="tag">GTM</span>
+          <span class="tag">Sales partnership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item reveal">
+      <div class="work-meta">
+        <div class="work-company">Liftopia</div>
+        <div class="work-period">Oct 2017 — Nov 2019</div>
+      </div>
+      <div class="work-body">
+        <div class="work-title">Manager, Analytics</div>
+        <ul class="work-bullets">
+          <li>Managed a team of three; scaled GTM analytics and automated annual business reviews for 180+ partners.</li>
+          <li>Drove Looker adoption and built Python/SQL Airflow jobs to catch pricing issues, cutting discrepancies by 25%.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Looker</span>
+          <span class="tag">Airflow</span>
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-item reveal">
+      <div class="work-meta">
+        <div class="work-company">Triage Consulting Group</div>
+        <div class="work-period">Jul 2015 — Sep 2017</div>
+      </div>
+      <div class="work-body">
+        <div class="work-title">Senior Associate Consultant</div>
+        <ul class="work-bullets">
+          <li>Led revenue-cycle projects for hospitals — scaled audits recovered $8M+ in underpaid claims.</li>
+        </ul>
+        <div class="work-tags">
+          <span class="tag">Analytics</span>
+          <span class="tag">Healthcare</span>
         </div>
       </div>
     </div>
@@ -622,7 +719,7 @@
       <div class="project-num">01</div>
       <div class="project-title">NEON Scaled Customer Insights Agent</div>
       <p class="project-desc">
-        An LLM-powered sales intelligence platform built for LinkedIn's enterprise sales org. Architected a five-step agent interaction flow (Query → Discovery → Insights → Analyze → Export) with account memory persistence, enabling sellers to surface real-time account intelligence without analyst bottlenecks.
+        An LLM-powered sales intelligence experience built for LinkedIn's enterprise sales org, alongside a broad NEON scaled-insights portfolio. Architected a five-step agent flow (Query → Discovery → Insights → Analyze → Export) with account memory persistence so sellers get account-level answers without waiting on analysts.
       </p>
       <div class="project-stack">LangChain · Streamlit · Python · LLM · RAG</div>
     </div>
@@ -631,7 +728,7 @@
       <div class="project-num">02</div>
       <div class="project-title">GTM Event Attribution Pipeline</div>
       <p class="project-desc">
-        End-to-end classification pipeline for event-related ads at LinkedIn Marketing Solutions. Designed an extensible schema and LEFT ANTI JOIN incremental loading pattern in Trino, powering Q3 Events Crediting with a goal of full pipeline automation and revenue attribution accuracy.
+        End-to-end classification pipeline for event-related ads at LinkedIn Marketing Solutions. Designed an extensible schema and LEFT ANTI JOIN incremental loading pattern in Trino, powering events crediting and cleaner revenue attribution — built for automation and accuracy as the business scales.
       </p>
       <div class="project-stack">Trino · SQL · Python · dbt · Airflow</div>
     </div>
@@ -640,9 +737,18 @@
       <div class="project-num">03</div>
       <div class="project-title">LinkedIn Advertising AI Agent</div>
       <p class="project-desc">
-        A structured LLM system prompt and agent architecture enabling natural-language analysis of LinkedIn campaign performance data. Dynamically adapts to any campaign-related question, surfacing under-leveraged content topics and top-performing creatives by dwell time, CTR, and conversion metrics.
+        A structured LLM system prompt and agent architecture enabling natural-language analysis of LinkedIn campaign performance data. Dynamically adapts to campaign questions, surfacing under-leveraged topics and top-performing creatives by dwell time, CTR, and conversion metrics.
       </p>
       <div class="project-stack">LangChain · OpenAI · Python · Prompt Engineering</div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-num">04</div>
+      <div class="project-title">NEON performance &amp; data foundations</div>
+      <p class="project-desc">
+        Hands-on work to make large-scale insight tooling faster and more dependable: GenAI-assisted optimization pilots on the heaviest NEON tools, measurable runtime improvements on core workloads (including large wins on measurement and multi-messaging-style pipelines), and strategic investment in shared tables — e.g., audience and engagement surfaces that unlock many downstream reports. Paired with operational excellence on CIQ/Merlin reliability and clear PRDs when bringing cross-functional partners along.
+      </p>
+      <div class="project-stack">Trino · SQL · Python · GenAI tooling · Platform partnership</div>
     </div>
 
   </div>
@@ -684,7 +790,7 @@
     <div class="section-label">Connect</div>
     <h2 class="connect-heading">Let's build something <em>worth building.</em></h2>
     <p class="connect-desc">
-      I'm always interested in conversations about data products, AI infrastructure, and GTM analytics at scale. Whether you're working on something ambitious or just want to compare notes — reach out.
+      I'm always interested in conversations about analytics engineering, data foundations at scale, AI for internal tools, and GTM intelligence. Whether you're working on something ambitious or just want to compare notes — reach out.
     </p>
     <div class="connect-links">
       <a href="mailto:gregoryspathias@gmail.com" class="hero-link primary">gregoryspathias@gmail.com</a>
